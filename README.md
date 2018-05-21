@@ -1,5 +1,14 @@
 # Jest Test
 
+## Notes
+
+### Immutability
+By not mutating (or changing the underlying data) directly it helps increase component and overall application performance.
+
+a. Good for Easier Undo/Redo and Time Travel
+b. Tracking Changes.  If the object being referenced is different from before, then the object has changed. That’s it.
+
+
 ## commands:
 
   npm start
