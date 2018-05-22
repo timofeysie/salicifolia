@@ -2,6 +2,32 @@
 
 ## Notes
 
+While creating the history feature of the tic tac toe game, 
+the control of the game was moved from board to game.
+
+The click actions used are:
+```
+this.handleClick(i) // call function in a class
+this.props.onClick(i) // cal function in parent class
+```
+
+In the Square class:
+```
+<button onClick={() => this.props.onClick();
+```
+
+In the Board class:
+```
+<Square onClick={() => this.props.onClick(i)}
+```
+
+In the Game class render JSX file, we do this:
+```
+<Board onClick={(i) => this.handleClick(i)}
+```
+
+In this was the clicks propagate up the hierarchy from  
+
 ### Immutability
 By not mutating (or changing the underlying data) directly it helps increase component and overall application performance.
 
@@ -10,7 +36,7 @@ b. Tracking Changes.  If the object being referenced is different from before, t
 
 
 ## commands:
-
+```
   npm start
     Starts the development server.
 
@@ -28,9 +54,7 @@ We suggest that you begin by typing:
 
   cd jest-test2
   npm start
-
-Happy hacking!
-
+```
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
