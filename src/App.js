@@ -17,10 +17,11 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Game />
+        <br />
         <button className="square">
           {/* TODO */}
         </button>
-        <p><Link page="www.google.com"/></p>
+        <div>Link: <Link page="www.google.com"/></div>
       </div>
     );
   }

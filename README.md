@@ -1,6 +1,10 @@
 # Jest Test
 
-## Notes
+Project created with the create-react-app CLI.
+The tic tac toe app was created from [this tutorial](https://reactjs.org/tutorial/tutorial.html).
+Jest begun from [this page](https://facebook.github.io/jest/docs/en/tutorial-react.html).
+
+## Events
 
 While creating the history feature of the tic tac toe game, 
 the control of the game was moved from board to game.
@@ -27,6 +31,7 @@ In the Game class render JSX file, we do this:
 ```
 
 In this was the clicks propagate up the hierarchy from  
+
 
 ### Immutability
 By not mutating (or changing the underlying data) directly it helps increase component and overall application performance.
