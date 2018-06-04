@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Link changes the class when hovered 1`] = `
+exports[`Link test changes the class when hovered 1`] = `
 <a
   className="normal"
   href="http://www.facebook.com"
@@ -11,7 +11,7 @@ exports[`Link changes the class when hovered 1`] = `
 </a>
 `;
 
-exports[`Link changes the class when hovered 2`] = `
+exports[`Link test changes the class when hovered 2`] = `
 <a
   className="hovered"
   href="http://www.facebook.com"
@@ -22,7 +22,7 @@ exports[`Link changes the class when hovered 2`] = `
 </a>
 `;
 
-exports[`Link changes the class when hovered 3`] = `
+exports[`Link test changes the class when hovered 3`] = `
 <a
   className="normal"
   href="http://www.facebook.com"

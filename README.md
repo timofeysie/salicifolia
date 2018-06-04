@@ -1,8 +1,67 @@
-# Jest Test
+# Jest Test App
 
 Project created with the create-react-app CLI.
 The tic tac toe app was created from [this tutorial](https://reactjs.org/tutorial/tutorial.html).
 Jest begun from [this page](https://facebook.github.io/jest/docs/en/tutorial-react.html).
+
+
+## Jest Snapshot Testing
+
+The snapshot should be committed along code changes. When a snapshot test fails, you need to inspect whether it is an intended or unintended change. 
+
+If the change is expected you can invoke Jest with 
+```
+jest -u
+``` 
+to overwrite the existing snapshot.
+
+
+## DOM Testing
+
+Using Enzyme's shallow renderer example, we got this:
+```
+Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none. To
+configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`
+before using any of Enzyme's top level APIs, where `Adapter` is the adapter
+corresponding to the library currently being tested. For example:
+
+import Adapter from 'enzyme-adapter-react-15';
+
+To find out more about this, see http://airbnb.io/enzyme/docs/installation/index.html
+```
+
+Following those instructions we then get this:
+```
+Cannot find module 'enzyme-adapter-react-15' from 'Game.test.js'
+at Resolver.resolveModule (node_modules/jest-resolve/build/index.js:179:17)
+at Object.<anonymous> (src/Game.test.js:5:27)
+```
+
+After a bit of searching and an SO answer, this works:
+```
+import Enzyme from 'enzyme';
+import {shallow} from 'enzyme';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+```
+
+Not sure if this is needed:
+```
+amend the package.json - add /src/setupTests.js to the setupFiles array:
+
+"setupFiles": [
+  "<rootDir>/config/polyfills.js",
+  "<rootDir>/src/setupTests.js"
+],
+```
+
+[Source](https://stackoverflow.com/questions/46435558/could-not-find-declaration-file-for-enzyme-adapter-react-16?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+
+
+
+
+
 
 ## Events
 
