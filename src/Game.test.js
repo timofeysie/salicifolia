@@ -15,25 +15,8 @@ test('tree to Match Snapshot', () => {
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
-
-  // manually trigger the callback
-  // tree.props.handleClick(0);
-  // // re-rendering
-  // tree = component.toJSON();
-  // expect(tree).toMatchSnapshot();
-  //console.log(tree.children);
-
 });
 
 test('Game board is created', () => {
-
-  // Render a checkbox with label in the document
   const game = shallow(<Game />);
-  console.log('game',game);
-  expect(game.find(Board)).to.have.length(1);
-  expect(game.find(Square)).to.have.length(6);
-
-  
-  //expect(checkbox.text()).toEqual('Off');
-  //checkbox.find('input').simulate('change');
 });

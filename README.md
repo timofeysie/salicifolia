@@ -65,7 +65,7 @@ amend the package.json - add /src/setupTests.js to the setupFiles array:
 
 ## Events
 
-While creating the history feature of the tic tac toe game, 
+While creating the hisreact-test-renderertory feature of the tic tac toe game, 
 the control of the game was moved from board to game.
 
 The click actions used are:
