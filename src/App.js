@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Game from './Game.js';
 import Link from './Link.react';
+import TodoList from './todo/TodoList';
 
 
 class App extends Component {
@@ -22,6 +23,9 @@ class App extends Component {
           {/* TODO */}
         </button>
         <div>Link: <Link page="www.google.com"/></div>
+        <div>
+          <TodoList />
+        </div>
       </div>
     );
   }

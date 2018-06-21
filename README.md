@@ -5,6 +5,7 @@ The tic tac toe app was created from [this tutorial](https://reactjs.org/tutoria
 Jest begun from [this page](https://facebook.github.io/jest/docs/en/tutorial-react.html).
 
 
+
 ## Jest Snapshot Testing
 
 The snapshot should be committed along code changes. When a snapshot test fails, you need to inspect whether it is an intended or unintended change. 
