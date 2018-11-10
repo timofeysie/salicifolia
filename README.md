@@ -1,134 +1,21 @@
-# Jest Test App
+# Salicifolia
 
-Project created with the create-react-app CLI.
-The tic tac toe app was created from [this tutorial](https://reactjs.org/tutorial/tutorial.html).
-Jest begun from [this page](https://facebook.github.io/jest/docs/en/tutorial-react.html).
+This is a React 16 app that gets a list of items from WikiData and Wikipedia and provides a detail view of these items.
 
-
-
-## Jest Snapshot Testing
-
-The snapshot should be committed along code changes. When a snapshot test fails, you need to inspect whether it is an intended or unintended change. 
-
-If the change is expected you can invoke Jest with 
-```
-jest -u
-``` 
-to overwrite the existing snapshot.
+Work in progress includes using a component library built with the [Stencil compiler](https://stenciljs.com/docs/react/). 
 
 
-## DOM Testing
+#
 
-Using Enzyme's shallow renderer example, we got this:
-```
-Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none. To
-configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`
-before using any of Enzyme's top level APIs, where `Adapter` is the adapter
-corresponding to the library currently being tested. For example:
-
-import Adapter from 'enzyme-adapter-react-15';
-
-To find out more about this, see http://airbnb.io/enzyme/docs/installation/index.html
-```
-
-Following those instructions we then get this:
-```
-Cannot find module 'enzyme-adapter-react-15' from 'Game.test.js'
-at Resolver.resolveModule (node_modules/jest-resolve/build/index.js:179:17)
-at Object.<anonymous> (src/Game.test.js:5:27)
-```
-
-After a bit of searching and an SO answer, this works:
-```
-import Enzyme from 'enzyme';
-import {shallow} from 'enzyme';
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-configure({ adapter: new Adapter() });
-```
-
-Not sure if this is needed:
-```
-amend the package.json - add /src/setupTests.js to the setupFiles array:
-
-"setupFiles": [
-  "<rootDir>/config/polyfills.js",
-  "<rootDir>/src/setupTests.js"
-],
-```
-
-[Source](https://stackoverflow.com/questions/46435558/could-not-find-declaration-file-for-enzyme-adapter-react-16?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+## Table of contents
 
 
-
-
-
-
-## Events
-
-While creating the hisreact-test-renderertory feature of the tic tac toe game, 
-the control of the game was moved from board to game.
-
-The click actions used are:
-```
-this.handleClick(i) // call function in a class
-this.props.onClick(i) // cal function in parent class
-```
-
-In the Square class:
-```
-<button onClick={() => this.props.onClick();
-```
-
-In the Board class:
-```
-<Square onClick={() => this.props.onClick(i)}
-```
-
-In the Game class render JSX file, we do this:
-```
-<Board onClick={(i) => this.handleClick(i)}
-```
-
-In this was the clicks propagate up the hierarchy from  
-
-
-### Immutability
-By not mutating (or changing the underlying data) directly it helps increase component and overall application performance.
-
-a. Good for Easier Undo/Redo and Time Travel
-b. Tracking Changes.  If the object being referenced is different from before, then the object has changed. That’s it.
-
-
-## commands:
-```
-  npm start
-    Starts the development server.
-
-  npm run build
-    Bundles the app into static files for production.
-
-  npm test
-    Starts the test runner.
-
-  npm run eject
-    Removes this tool and copies build dependencies, configuration files
-    and scripts into the app directory. If you do this, you can’t go back!
-
-We suggest that you begin by typing:
-
-  cd jest-test2
-  npm start
-```
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
-## Table of Contents
-
+- [Including the Stencil components](#including-the-Stencil-components)
+- [Jest Test App](#Jest-Test-App)
+- [Jest Snapshot Testing](#jest-Snapshot-Testing)
+- [DOM Testing](#dom-Testing)
+- [Events](#events)
+- [Immutability](#immutability)
 - [Updating to New Releases](#updating-to-new-releases)
 - [Sending Feedback](#sending-feedback)
 - [Folder Structure](#folder-structure)
@@ -226,6 +113,136 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [Moment.js locales are missing](#momentjs-locales-are-missing)
 - [Alternatives to Ejecting](#alternatives-to-ejecting)
 - [Something Missing?](#something-missing)
+
+
+## Including the Stencil components
+
+
+
+## Jest Test App
+
+This project was formally knows as the jest-test2 app.  It was created with the create-react-app CLI.
+
+The tic tac toe app was created from [this tutorial](https://reactjs.org/tutorial/tutorial.html).
+
+Jest begun from [this page](https://facebook.github.io/jest/docs/en/tutorial-react.html).
+
+
+
+## Jest Snapshot Testing
+
+The snapshot should be committed along code changes. When a snapshot test fails, you need to inspect whether it is an intended or unintended change. 
+
+If the change is expected you can invoke Jest with 
+```
+jest -u
+``` 
+to overwrite the existing snapshot.
+
+
+## DOM Testing
+
+Using Enzyme's shallow renderer example, we got this:
+```
+Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none. To
+configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`
+before using any of Enzyme's top level APIs, where `Adapter` is the adapter
+corresponding to the library currently being tested. For example:
+
+import Adapter from 'enzyme-adapter-react-15';
+
+To find out more about this, see http://airbnb.io/enzyme/docs/installation/index.html
+```
+
+Following those instructions we then get this:
+```
+Cannot find module 'enzyme-adapter-react-15' from 'Game.test.js'
+at Resolver.resolveModule (node_modules/jest-resolve/build/index.js:179:17)
+at Object.<anonymous> (src/Game.test.js:5:27)
+```
+
+After a bit of searching and an SO answer, this works:
+```
+import Enzyme from 'enzyme';
+import {shallow} from 'enzyme';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+```
+
+Not sure if this is needed:
+```
+amend the package.json - add /src/setupTests.js to the setupFiles array:
+
+"setupFiles": [
+  "<rootDir>/config/polyfills.js",
+  "<rootDir>/src/setupTests.js"
+],
+```
+
+[Source](https://stackoverflow.com/questions/46435558/could-not-find-declaration-file-for-enzyme-adapter-react-16?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+
+
+
+
+## Events
+
+While creating the hisreact-test-renderertory feature of the tic tac toe game, 
+the control of the game was moved from board to game.
+
+The click actions used are:
+```
+this.handleClick(i) // call function in a class
+this.props.onClick(i) // cal function in parent class
+```
+
+In the Square class:
+```
+<button onClick={() => this.props.onClick();
+```
+
+In the Board class:
+```
+<Square onClick={() => this.props.onClick(i)}
+```
+
+In the Game class render JSX file, we do this:
+```
+<Board onClick={(i) => this.handleClick(i)}
+```
+
+In this was the clicks propagate up the hierarchy from  
+
+
+### Immutability
+By not mutating (or changing the underlying data) directly it helps increase component and overall application performance.
+
+a. Good for Easier Undo/Redo and Time Travel
+b. Tracking Changes.  If the object being referenced is different from before, then the object has changed. That’s it.
+
+
+## Commands
+
+Basic workflow commands:
+```
+  npm start
+  npm run build
+  npm test
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+```
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+Below you will find some information on how to perform common tasks.<br>
+You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
+
+# 
+
+## Previous Readme content
 
 ## Updating to New Releases
 
