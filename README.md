@@ -2,8 +2,9 @@
 
 This is a React 16 app that gets a list of items from WikiData and Wikipedia and provides a detail view of these items.
 
-Work in progress includes using a component library built with the [Stencil compiler](https://stenciljs.com/docs/react/). 
+Work in progress includes using a component library built with the [Stencil compiler](https://stenciljs.com/docs/react/).
 
+git remote add origin https://github.com/timofeysie/salicifolia.git
 
 #
 
@@ -117,6 +118,55 @@ Work in progress includes using a component library built with the [Stencil comp
 
 ## Including the Stencil components
 
+```
+$ npm i consort
+npm WARN deprecated typescript-node@0.1.3: typescript-node has been renamed to ts-node
+jest-test2@0.1.0 /Users/tim/repos/loranthifolia-teretifolia-curator/salicifolia
+├─┬ consort@1.2.0
+│ ├─┬ ts-node@7.0.1
+│ │ ├── buffer-from@1.1.1
+│ │ ├── minimist@1.2.0
+│ │ ├── source-map-support@0.5.9
+│ │ └── yn@2.0.0
+│ ├─┬ typescript-node@0.1.3
+│ │ ├── diff@2.2.3
+│ │ ├── make-error@1.3.5
+│ │ ├── minimist@1.2.0
+│ │ ├─┬ source-map-support@0.3.3
+│ │ │ └── source-map@0.1.32
+│ │ └─┬ tsconfig@1.1.0
+│ │   └── glob@5.0.15
+│ ├─┬ typescript-register@1.1.0
+│ │ ├─┬ chalk@0.5.1
+│ │ │ ├── ansi-styles@1.1.0
+│ │ │ ├─┬ has-ansi@0.1.0
+│ │ │ │ └── ansi-regex@0.2.1
+│ │ │ ├── strip-ansi@0.3.0
+│ │ │ └── supports-color@0.2.0
+│ │ ├─┬ sanitize-filename@1.6.1
+│ │ │ └─┬ truncate-utf8-bytes@1.0.2
+│ │ │   └── utf8-byte-length@1.0.4
+│ │ └── typescript@1.8.10
+│ └── typescript-require@0.2.10
+└── UNMET PEER DEPENDENCY react@16.3.2
+
+npm WARN ajv-keywords@3.2.0 requires a peer of ajv@^6.0.0 but none was installed.
+npm WARN react-addons-css-transition-group@15.6.2 requires a peer of react@^15.4.2 but none was installed.
+```
+
+```
+npm i ajv-keywords
+npm i react-addons-css-transition-group
+```
+
+With React 16.8 Hooks, we can now use the *useState*  hook to use state and and the *useEffect* hook to use lifecycle events in your functional components.
+
+How does this affect the component versus class debate?  If you want to use lifecycle hooks which come from the React.Component you have to extend it in a class components.
+
+The reasons outlined in the docs cite easier to read and test, less code and performance boost.
+
+Best practices such as easier to separate container and presentational components because you need to think more about your component’s state if you don’t have access to setState() in your component.
+
 
 
 ## Jest Test App
@@ -131,12 +181,12 @@ Jest begun from [this page](https://facebook.github.io/jest/docs/en/tutorial-rea
 
 ## Jest Snapshot Testing
 
-The snapshot should be committed along code changes. When a snapshot test fails, you need to inspect whether it is an intended or unintended change. 
+The snapshot should be committed along code changes. When a snapshot test fails, you need to inspect whether it is an intended or unintended change.
 
-If the change is expected you can invoke Jest with 
+If the change is expected you can invoke Jest with
 ```
 jest -u
-``` 
+```
 to overwrite the existing snapshot.
 
 
@@ -187,7 +237,7 @@ amend the package.json - add /src/setupTests.js to the setupFiles array:
 
 ## Events
 
-While creating the hisreact-test-renderertory feature of the tic tac toe game, 
+While creating the hisreact-test-renderertory feature of the tic tac toe game,
 the control of the game was moved from board to game.
 
 The click actions used are:
@@ -240,7 +290,7 @@ Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 
-# 
+#
 
 ## Previous Readme content
 
@@ -441,7 +491,7 @@ In the WebStorm menu `Run` select `Edit Configurations...`. Then click `+` and s
 
 Start your app by running `npm start`, then press `^D` on macOS or `F9` on Windows and Linux or click the green debug icon to start debugging in WebStorm.
 
-The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine. 
+The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine.
 
 ## Formatting Code Automatically
 
@@ -2130,7 +2180,7 @@ If you’re using [Apache HTTP Server](https://httpd.apache.org/), you need to c
     RewriteRule ^ index.html [QSA,L]
 ```
 
-It will get copied to the `build` folder when you run `npm run build`. 
+It will get copied to the `build` folder when you run `npm run build`.
 
 If you’re using [Apache Tomcat](http://tomcat.apache.org/), you need to follow [this Stack Overflow answer](https://stackoverflow.com/a/41249464/4878474).
 
@@ -2570,7 +2620,7 @@ To resolve this:
 1. Open an issue on the dependency's issue tracker and ask that the package be published pre-compiled.
   * Note: Create React App can consume both CommonJS and ES modules. For Node.js compatibility, it is recommended that the main entry point is CommonJS. However, they can optionally provide an ES module entry point with the `module` field in `package.json`. Note that **even if a library provides an ES Modules version, it should still precompile other ES6 features to ES5 if it intends to support older browsers**.
 
-2. Fork the package and publish a corrected version yourself. 
+2. Fork the package and publish a corrected version yourself.
 
 3. If the dependency is small enough, copy it to your `src/` folder and treat it as application code.
 
